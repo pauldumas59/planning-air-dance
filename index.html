@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Planning Air Dance</title>
   <meta name="description" content="Planning d'Air Dance Studio, en vue semaine, avec réservation directe sur bsport.">
-  <meta name="theme-color" content="#23172a">
+  <meta name="theme-color" content="#3a0e22">
   <meta name="referrer" content="no-referrer">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
@@ -18,25 +18,30 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preload" href="fonts/barlow-sc-500.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=2026-10-27c">
 </head>
 <body>
   <header class="bar" id="bar">
     <div class="brand">
-      <span class="brand-mark"></span>
       <div>
-        <div class="brand-name">Air Dance Studio</div>
+        <div class="brand-name"><span class="studio">Air Dance Studio · </span>non officiel</div>
         <h1 class="week" id="week"></h1>
       </div>
       <span class="week-label" id="week-label"></span>
     </div>
     <div class="spacer"></div>
     <nav class="nav" aria-label="Semaines">
+      <button type="button" id="back" title="Retour au planning (Échap)" hidden><span class="arrow">‹</span> Planning</button>
       <button type="button" id="prev" title="Semaine précédente (←)" aria-label="Semaine précédente"><span class="arrow">‹</span></button>
       <button type="button" id="current">Aujourd’hui</button>
       <button type="button" id="next" title="Semaine suivante (→)" aria-label="Semaine suivante"><span class="arrow">›</span></button>
     </nav>
+    <button type="button" class="refresh" id="refresh" title="Actualiser (R)" aria-label="Actualiser le planning">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/>
+      </svg>
+    </button>
     <div class="credits" id="credits" hidden></div>
     <div class="profile">
       <button type="button" class="avatar" id="avatar" aria-label="Menu du compte" aria-haspopup="menu" aria-expanded="false"></button>
@@ -67,6 +72,6 @@
     </form>
   </dialog>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2026-10-27c"></script>
 </body>
 </html>
