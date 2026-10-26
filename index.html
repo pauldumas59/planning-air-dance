@@ -2,6 +2,10 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <!-- Défense en profondeur : seul notre code s'exécute, et seule l'API bsport
+       est joignable. img-src reste large faute de connaître l'hôte des photos
+       de profil. frame-ancestors n'existe pas en meta : voir app.js. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' https:; connect-src https://api.production.bsport.io; manifest-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Planning Air Dance</title>
   <meta name="description" content="Planning d'Air Dance Studio, en vue semaine, avec réservation directe sur bsport.">

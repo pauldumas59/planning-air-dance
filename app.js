@@ -12,6 +12,15 @@
 (() => {
   'use strict';
 
+  // GitHub Pages ne permet pas d'envoyer frame-ancestors : on refuse de
+  // tourner dans un cadre, pour qu'aucun site ne superpose la connexion.
+  if (window.top !== window.self) {
+    document.body.replaceChildren(Object.assign(document.createElement('a'), {
+      href: location.href, target: '_blank', rel: 'noopener', textContent: 'Ouvrir le planning',
+    }));
+    return;
+  }
+
   const COMPANY = 1272;
   const API = 'https://api.production.bsport.io';
   const SITE = 'https://backoffice.bsport.io';
@@ -108,12 +117,15 @@
   /**
    * Pont de secours : `…/#token=<clé>` (fragment jamais envoyé au serveur).
    * Sert si leur endpoint de connexion change ou se met à exiger un captcha.
+   * Un lien reçu pourrait imposer le compte de quelqu'un d'autre : jamais par
+   * dessus une session existante, et seulement après confirmation.
    */
   (function takeTokenFromHash() {
-    const m = location.hash.match(/token=([0-9a-f]{40})/i);
+    const m = location.hash.match(/^#token=([0-9a-f]{40})$/i);
     if (!m) return;
-    setToken(m[1]);
     history.replaceState(null, '', location.pathname + location.search);
+    if (token) return;
+    if (confirm('Ce lien contient une clé de session bsport. L’utiliser pour se connecter sur cet appareil ?')) setToken(m[1]);
   })();
 
   /**
