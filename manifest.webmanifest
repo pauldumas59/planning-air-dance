@@ -1,0 +1,17 @@
+{
+  "name": "Planning Air Dance",
+  "short_name": "Planning",
+  "description": "Planning d'Air Dance Studio, en vue semaine, avec réservation directe sur bsport.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f1f5",
+  "theme_color": "#23172a",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Planning Air Dance</title>
+  <meta name="description" content="Planning d'Air Dance Studio, en vue semaine, avec réservation directe sur bsport.">
+  <meta name="theme-color" content="#23172a">
+  <meta name="referrer" content="no-referrer">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Planning">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="fonts/barlow-sc-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar" id="bar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div>
+        <div class="brand-name">Air Dance Studio</div>
+        <h1 class="week" id="week"></h1>
+      </div>
+      <span class="week-label" id="week-label"></span>
+    </div>
+    <div class="spacer"></div>
+    <nav class="nav" aria-label="Semaines">
+      <button type="button" id="prev" title="Semaine précédente (←)" aria-label="Semaine précédente"><span class="arrow">‹</span></button>
+      <button type="button" id="current">Aujourd’hui</button>
+      <button type="button" id="next" title="Semaine suivante (→)" aria-label="Semaine suivante"><span class="arrow">›</span></button>
+    </nav>
+    <div class="credits" id="credits" hidden></div>
+    <div class="profile">
+      <button type="button" class="avatar" id="avatar" aria-label="Menu du compte" aria-haspopup="menu" aria-expanded="false"></button>
+      <div class="menu" id="menu" role="menu" hidden></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="filters" id="filters" role="toolbar" aria-label="Filtres"></div>
+    <div class="board" id="board"></div>
+  </main>
+
+  <dialog class="login" id="login" aria-labelledby="login-title">
+    <form method="dialog" id="login-form" novalidate>
+      <h2 id="login-title">Connexion à bsport</h2>
+      <p class="login-help">Ton email et ton mot de passe partent directement chez bsport. Ce site ne garde que la clé de session, sur cet appareil.</p>
+      <label>Email
+        <input type="email" name="email" autocomplete="username" inputmode="email" required>
+      </label>
+      <label>Mot de passe
+        <input type="password" name="password" autocomplete="current-password" required>
+      </label>
+      <p class="login-error" id="login-error" role="alert" hidden></p>
+      <div class="login-actions">
+        <button type="button" class="ghost" id="login-cancel">Annuler</button>
+        <button type="submit" class="primary" id="login-submit">Se connecter</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
